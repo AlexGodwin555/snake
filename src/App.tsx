@@ -140,7 +140,7 @@ export default function App() {
       // Leave room for the 2px border on each side
       const availableWidth = Math.max(200, rect.width - 4);
       const availableHeight = Math.max(200, rect.height - 4);
-      const maxCap = window.innerWidth >= 768 ? 600 : 520;
+      const maxCap = window.innerWidth >= 768 ? 560 : 520;
       const raw = Math.min(availableWidth, availableHeight, maxCap);
       const snapped = Math.max(220, Math.floor(raw / GRID_SIZE) * GRID_SIZE);
       setBoardSize((prev) => (prev === snapped ? prev : snapped));
@@ -557,14 +557,17 @@ export default function App() {
     return () => window.cancelAnimationFrame(rafId);
   }, [triggerLevelUpNotice]);
 
-  // Match HUD width gracefully to the board width while staying wide enough for metrics
-  const hudMaxWidth = Math.max(boardSize + 4, 340);
+  // Match mobile HUD width to board while letting desktop (md+) breathe up to 560px
+  const mobileHudMaxWidth = Math.max(boardSize + 4, 340);
 
   return (
     <main className="h-[100dvh] w-full overflow-hidden bg-[#090D16] flex flex-col items-center justify-between px-3 py-2.5 sm:px-6 sm:py-5">
-      <div className="w-full h-full max-w-[680px] flex flex-col items-center justify-between gap-2.5 sm:gap-3.5 min-h-0">
+      <div className="w-full h-full md:max-w-[560px] flex flex-col items-center justify-between gap-2.5 sm:gap-3.5 min-h-0">
         {/* Top Game HUD */}
-        <div className="w-full shrink-0" style={{ maxWidth: `${hudMaxWidth}px` }}>
+        <div
+          className="w-full max-w-[var(--mobile-hud-max)] md:max-w-[560px] shrink-0"
+          style={{ ['--mobile-hud-max' as string]: `${mobileHudMaxWidth}px` }}
+        >
           <GameHud
             score={score}
             highScore={highScore}

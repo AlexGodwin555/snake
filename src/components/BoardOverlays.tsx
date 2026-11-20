@@ -55,13 +55,13 @@ export function BoardOverlays({
 
       {/* Start Screen Overlay */}
       {status === 'START' && (
-        <div className="absolute inset-0 z-30 flex items-center justify-center p-3.5 sm:p-6 bg-[#090D16]/88 backdrop-blur-[3px] overflow-y-auto">
-          <div className="w-full max-w-[360px] flex flex-col items-center text-center">
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-3.5 sm:p-6 md:p-8 bg-[#090D16]/88 backdrop-blur-[3px] overflow-y-auto">
+          <div className="w-full max-w-[360px] md:max-w-[400px] flex flex-col items-center text-center">
             <h1 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-50 [text-wrap:balance]">
               Snake Arcade
             </h1>
 
-            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[310px]">
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-[320px]">
               Steer with{' '}
               <span className="text-slate-100 font-medium">Arrow Keys</span> or{' '}
               <span className="text-slate-100 font-medium">WASD</span> on desktop, or use the{' '}
@@ -106,7 +106,7 @@ export function BoardOverlays({
             <button
               type="button"
               onClick={onStartNewGame}
-              className="mt-3.5 sm:mt-5 w-full h-11 sm:h-12 px-6 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-display font-bold text-sm sm:text-base tracking-tight transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
+              className="mt-3.5 sm:mt-5 w-full h-11 sm:h-12 px-6 py-2.5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-display font-bold text-sm sm:text-base tracking-tight transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
             >
               <Play className="w-4 h-4 fill-current shrink-0" aria-hidden="true" />
               <span>Start New Game</span>
@@ -121,8 +121,8 @@ export function BoardOverlays({
 
       {/* Paused Overlay */}
       {status === 'PAUSED' && (
-        <div className="absolute inset-0 z-30 flex items-center justify-center p-4 sm:p-6 bg-[#090D16]/78 backdrop-blur-[3px]">
-          <div className="w-full max-w-[290px] flex flex-col items-center text-center">
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-[#090D16]/78 backdrop-blur-[3px] overflow-y-auto">
+          <div className="w-full max-w-[320px] md:max-w-[360px] flex flex-col items-center text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-slate-50">
               Paused
             </h2>
@@ -130,21 +130,21 @@ export function BoardOverlays({
               Press Space or P to continue
             </p>
 
-            <div className="mt-5 w-full flex flex-col gap-2.5">
+            <div className="mt-5 w-full flex flex-col gap-3">
               <button
                 type="button"
                 onClick={onResumeGame}
-                className="w-full h-11 px-5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-display font-bold text-sm sm:text-base transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                className="w-full h-11 px-5 py-2.5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-display font-bold text-sm sm:text-base transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
               >
                 <Play className="w-4 h-4 fill-current shrink-0" aria-hidden="true" />
                 <span>Resume</span>
               </button>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-3 w-full">
                 <button
                   type="button"
                   onClick={onStartNewGame}
-                  className="h-10 px-3 inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-slate-100 text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                  className="flex-1 min-w-[120px] px-5 py-2.5 inline-flex items-center justify-center gap-2 rounded-lg bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-slate-100 text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   <RotateCcw className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                   <span>Restart</span>
@@ -152,7 +152,7 @@ export function BoardOverlays({
                 <button
                   type="button"
                   onClick={onReturnToMenu}
-                  className="h-10 px-3 inline-flex items-center justify-center rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-slate-100 text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                  className="flex-1 min-w-[136px] px-5 py-2.5 inline-flex items-center justify-center rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-slate-100 text-xs sm:text-sm font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
                   Change Level
                 </button>
@@ -164,8 +164,8 @@ export function BoardOverlays({
 
       {/* Game Over / Victory Overlay */}
       {(status === 'GAME_OVER' || status === 'VICTORY') && (
-        <div className="absolute inset-0 z-30 flex items-center justify-center p-4 sm:p-6 bg-[#090D16]/88 backdrop-blur-[3px]">
-          <div className="w-full max-w-[340px] flex flex-col items-center text-center">
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-[#090D16]/88 backdrop-blur-[3px] overflow-y-auto">
+          <div className="w-full max-w-[340px] md:max-w-[380px] flex flex-col items-center text-center">
             <h2
               className={`font-display text-3xl sm:text-4xl font-extrabold tracking-tight ${
                 status === 'VICTORY' ? 'text-emerald-400' : 'text-rose-400'
@@ -182,44 +182,52 @@ export function BoardOverlays({
 
             {/* Clean unboxed stat summary with hairline dividers */}
             <div className="mt-5 w-full grid grid-cols-3 border-y border-slate-800 py-3.5">
-              <div className="flex flex-col items-center px-1">
-                <span className="text-[11px] sm:text-xs text-slate-400">Final Score</span>
+              <div className="flex flex-col items-center px-2">
+                <span className="text-[11px] sm:text-xs text-slate-400 whitespace-nowrap">
+                  Final Score
+                </span>
                 <span className="mt-1 font-mono text-xl sm:text-2xl font-bold text-slate-50 tabular-nums">
                   {score}
                 </span>
               </div>
 
-              <div className="flex flex-col items-center px-1 border-x border-slate-800">
-                <span className="text-[11px] sm:text-xs text-slate-400">Top Level</span>
+              <div className="flex flex-col items-center px-2 border-x border-slate-800">
+                <span className="text-[11px] sm:text-xs text-slate-400 whitespace-nowrap">
+                  Top Level
+                </span>
                 <span className="mt-1 font-mono text-xl sm:text-2xl font-bold text-emerald-400 tabular-nums">
                   {highestLevel}
                 </span>
               </div>
 
-              <div className="flex flex-col items-center px-1">
-                <span className="text-[11px] sm:text-xs text-slate-400">High Score</span>
+              <div className="flex flex-col items-center px-2">
+                <span className="text-[11px] sm:text-xs text-slate-400 whitespace-nowrap">
+                  High Score
+                </span>
                 <span className="mt-1 font-mono text-xl sm:text-2xl font-bold text-amber-400 tabular-nums">
                   {highScore}
                 </span>
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={onStartNewGame}
-              className="mt-5 w-full h-12 px-6 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-display font-bold text-base tracking-tight transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
-            >
-              <RotateCcw className="w-4 h-4 shrink-0" aria-hidden="true" />
-              <span>Play Again</span>
-            </button>
+            <div className="mt-5 w-full flex flex-col items-center gap-3">
+              <button
+                type="button"
+                onClick={onStartNewGame}
+                className="w-full h-12 px-6 py-2.5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-display font-bold text-base tracking-tight transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#090D16]"
+              >
+                <RotateCcw className="w-4 h-4 shrink-0" aria-hidden="true" />
+                <span>Play Again</span>
+              </button>
 
-            <button
-              type="button"
-              onClick={onReturnToMenu}
-              className="mt-2.5 h-9 px-4 text-xs sm:text-sm font-medium text-slate-400 hover:text-slate-100 transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg"
-            >
-              Change Starting Level
-            </button>
+              <button
+                type="button"
+                onClick={onReturnToMenu}
+                className="px-5 py-2.5 text-xs sm:text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-slate-800/60 transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg"
+              >
+                Change Starting Level
+              </button>
+            </div>
           </div>
         </div>
       )}
