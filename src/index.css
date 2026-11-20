@@ -29,16 +29,24 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes levelUpPop {
+.boost-button {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes toastBannerPop {
   0% {
     opacity: 0;
     transform: translate(-50%, 8px) scale(0.92);
   }
-  15% {
+  14% {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
   }
-  80% {
+  82% {
     opacity: 1;
     transform: translate(-50%, 0) scale(1);
   }
@@ -49,11 +57,55 @@
 }
 
 .animate-level-up {
-  animation: levelUpPop 1.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: toastBannerPop 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes boardShake {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  16% {
+    transform: translate3d(-5px, 3px, 0);
+  }
+  33% {
+    transform: translate3d(5px, -3px, 0);
+  }
+  50% {
+    transform: translate3d(-4px, -2px, 0);
+  }
+  66% {
+    transform: translate3d(4px, 2px, 0);
+  }
+  83% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-board-shake {
+  animation: boardShake 240ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes comboPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-combo-pulse {
+  animation: comboPulse 0.85s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-level-up {
+  .animate-level-up,
+  .animate-board-shake,
+  .animate-combo-pulse {
     animation: none;
   }
 }
