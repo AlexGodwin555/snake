@@ -1,0 +1,6 @@
+{
+  "name": "Snake Arcade",
+  "description": "A responsive modern arcade Snake game with progressive levels, keyboard and mobile D-pad controls, and synthesized audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
